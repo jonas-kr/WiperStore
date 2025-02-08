@@ -86,7 +86,6 @@ const GetProducts = async (req, res) => {
 
 
 const NewProduct = async (req, res) => {
-    if (!req.user?.admin) return res.status(400).json({ error: "User is not authorized" })
     const {
         name, description, basePrice,
         salePrice, images, videos, sizes, colors, category, subCategory, bestSeller, freeShipping
@@ -121,7 +120,6 @@ const GetProduct = async (req, res) => {
 }
 
 const DelProduct = async (req, res) => {
-    if (!req.user?.admin) return res.status(400).json({ error: "User is not authorized" })
     const { id } = req.params
     try {
         await Product.findOneAndDelete({ _id: id })
@@ -132,8 +130,6 @@ const DelProduct = async (req, res) => {
 }
 
 const UpdateProduct = async (req, res) => {
-    if (!req.user?.admin) return res.status(400).json({ error: "User is not authorized" })
-
     const {
         name, description, basePrice,
         salePrice, images, videos, sizes, colors, category, subCategory, bestSeller, freeShipping
