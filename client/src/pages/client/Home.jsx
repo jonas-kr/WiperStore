@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { assets } from "../../assets/frontend_assets/assets"
 import Product from "../../components/Product"
 import { getProducts } from "../../controllers/productController"
-import ProductCardskeleton from "../../components/ProductCardskeleton"
+import ProductCardSkeleton from "../../components/ProductCardSkeleton"
 
 const Home = () => {
   const [latest, setLatest] = useState([])
@@ -58,7 +58,7 @@ const Home = () => {
          lg:grid-cols-5 gap-4 gap-y-6 transition-opacity ease-in duration-500 opacity-100 font-sans">
           {!loading ?
             <>{latest ? latest.map(p => (<Product props={p} key={p.id} />)) : <span className="mx-auto text-gray-500 font-normal flexCenter">No product</span>} </>
-            : <>{array.map((p, i) => (<ProductCardskeleton key={i} />))}</>}
+            : <>{array.map((p, i) => (<ProductCardSkeleton key={i} />))}</>}
         </div>
       </div>
       <div className="my-20 sm:my-10">
@@ -74,7 +74,7 @@ const Home = () => {
          lg:grid-cols-5 gap-4 gap-y-6 transition-opacity ease-in duration-500 opacity-100 font-sans">
           {!loading ?
             <>{bestseller ? bestseller.map(p => (<Product props={p} key={p.id} />)) : <span className="mx-auto text-gray-500 font-normal flexCenter">No product</span>} </>
-            : <>{array.map((p, i) => (<ProductCardskeleton key={i} />))}</>}
+            : <>{array.map((p, i) => (<ProductCardSkeleton key={i} />))}</>}
         </div>
 
       </div>
